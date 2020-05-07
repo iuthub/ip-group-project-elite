@@ -14,25 +14,35 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-Route::get('/', function () {
-    return view('home');
-})->name('home');
-
+/*Route::get('/', function () {
+    return view('index');
+})->name('index');*/
+Route::get('reservation', function () {
+    return view('reservation');
+})->name('reservation');
 Route::get('contact', function () {
-    return view('home');
-})->name('contactUs');
+    return view('contacts');
+})->name('contact');
 Route::get('menu', function () {
-    return view('home');
+    return view('menu');
 })->name('menu');
-Route::get('book', function () {
-    return view('home');
-})->name('book');
 Route::get('order', function () {
     return view('home');
 })->name('order');
 Route::get('about', function () {
-    return view('home');
+    return view('aboutUs');
 })->name('about');
+Route::get('book', function () {
+    return view('aboutUs');
+})->name('book');
 Auth::routes(); //['verify' => true]
-Route::get('/', 'HomeController@index')->name('home'); 
-
+Route::get('/', 'HomeController@index')->name('index'); 
+//Backend Routes
+Route::group(['prefix' => 'admin'], function () {
+    Route::get('/', function () {
+        return view('admin/index');
+    });
+    Route::get('food', function () {
+        return view('admin/food');
+    });
+});
