@@ -25,6 +25,8 @@ class CreateFoodsTable extends Migration
             //2->dinner
             //3->dessert
             //4->drink
+            $table->integer('rank');
+            //1 to 10 given by admin
         });
     }
 
