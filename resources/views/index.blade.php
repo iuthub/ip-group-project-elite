@@ -526,8 +526,108 @@
                 </div>
             </section>
         </div>
+<<<<<<< HEAD:resources/views/frontend/index.html
+
+        <!-- Scripts -->
+        <!-- jquery -->
+        <script src="js/jquery-3.3.1.min.js"></script>
+        <script src="js/owl.carousel.min.js"></script>
+        <!-- owl-carousel -->
+        <script>
+            $(document).ready(function () {
+                var owl = $(".owl-carousel").owlCarousel({
+                    loop: true,
+                    items: 1,
+                    nav: true,
+                    dots: true,
+                    navText: [
+                        "<i class='fa fa-chevron-left' aria-hidden='true'></i>",
+                        "<i class='fa fa-chevron-right' aria-hidden='true'></i>",
+                    ],
+                    autoplay: 2000,
+                    animateOut: "fadeOutLeft",
+                    animateIn: "fadeInRight",
+                    responsive: {
+                        500: {
+                            mouseDrag: false,
+                            touchDrag: true,
+                        },
+                        1200: {
+                            mouseDrag: true,
+                            touchDrag: false,
+                        },
+                    },
+                });
+            });
+        </script>
+        <!-- slick -->
+        <script src="js/slick.min.js"></script>
+        <script>
+            $(document).ready(function () {
+                $(".recallSlider").slick({
+                    slidesToShow: 2,
+                    slidesToScroll: 1,
+                    infinite: true,
+                    dots: true,
+                    arrows: false,
+                    autoplay: true,
+                    autoplaySpeed: 2000,
+                    responsive: [
+                        {
+                            breakpoint: 991,
+                            settings: {
+                                slidesToShow: 1,
+                                slidesToScroll: 1,
+                                infinite: true,
+                                dots: false,
+                            },
+                        },
+                    ],
+                });
+            });
+        </script>
+        <script>
+            $(function () {
+                var menuToggler = $(".menu-icon"),
+                    menu = $(".sidebar"),
+                    menubg = $(".menuCanvas"),
+                    exit = $("#exitmnu");
+
+                menuToggler.click(function (e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+
+                    $(this).toggleClass("active");
+                    menu.toggleClass("active");
+                    menubg.toggleClass("active");
+                    exit.toggleClass("active");
+                });
+
+                menu.click(function (e) {
+                    e.stopPropagation();
+                });
+
+                $(document).click(function (e) {
+                    if (!menu.has(e.target).length) {
+                        menu.removeClass("active");
+                        menuToggler.removeClass("active");
+                        menubg.removeClass("active");
+                        exit.removeClass("active");
+                    }
+                });
+            });
+        </script>
+        <script src="js/slick-animate.js"></script>
+        <script src="js/wow.min.js"></script>
+        <script>
+            new WOW().init();
+        </script>
+    </body>
+</html>
+=======
         
     
         @include('partials/footer')
     </div>
 @endsection
+>>>>>>> 31d1f390a5ddbdbe8ee18650123a2f1bdf468404:resources/views/index.blade.php
