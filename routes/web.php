@@ -52,7 +52,9 @@ Route::get('/', function(){
     return view('index');
 })->name('index'); //'HomeController@index')->name('index'); 
 //Backend Routes
-Route::group(['prefix' => 'admin'], function () {
+Route::group(['prefix' => 'admin',
+                'middleware'=> ['auth','admin']
+], function () {
     Route::get('/', function () {
         return view('admin/index');
     })->name('adminIndex');

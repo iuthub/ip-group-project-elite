@@ -4,6 +4,13 @@
             
     <div class="wrap">
         @include('partials/navbar')
+         @if(Session::has('info'))
+                <div class="mb-3">
+                    <div class="alert alert-danger">
+                        {{ Session::get('info') }}
+                    </div>
+                </div>
+            @endif
             
                     <!-- Carousel -->
                     <div class="hdCarousel">

@@ -26,11 +26,6 @@ class HomeController extends Controller
     public function index()
     {   
         $contacts = Contact::all();
-        if(Auth::check() && Auth::user()->role == 2) {
-            return redirect(route('adminIndex'))->with([
-                'info'=> "if you want to enter as a user first you must logout as a admin"
-            ]);       
-        }
 
         return view('index');
     }
