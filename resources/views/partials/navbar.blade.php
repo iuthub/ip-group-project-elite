@@ -94,12 +94,18 @@
                     <li>
                     <a href="{{route('contact')}}">Contacts</a>
                     </li>
-                    <li>
-                        <a href="#">Register|Login</a>
-                    </li>
-                    <li>
-                        <a href="#">Logout</a>
-                    </li>
+                    @if(Auth::guest())
+                        <li>
+                            <a href="{{route('register')}}">Register</a>
+                        </li>
+                        <li>
+                            <a href="{{route('login')}}">login</a>
+                        </li>
+                    @else
+                        <li>
+                            <a href="{{route('logout')}}">Logout</a>
+                        </li>
+                    @endif
                 </ul>
 
                 <div class="topHeaderIcons anothericon">

@@ -19,30 +19,37 @@ use Illuminate\Support\Facades\Auth;
 })->name('index');*/
 Route::get('reservation', function () {
     return view('reservation');
-})->name('reservation');
+})->name('reservation')->middleware('auth');
+
 Route::get('contact', function () {
     return view('contacts');
 })->name('contact');
+
 Route::get('menu', function () {
     return view('menu');
 })->name('menu');
+
 Route::get('order', function () {
     return view('home');
 })->name('order');
+
 Route::get('about', function () {
     return view('aboutUs');
 })->name('about');
+
 Route::get('book', function () {
     return view('aboutUs');
 })->name('book');
+
 Auth::routes(); //['verify' => true]
-Route::get('/', 'HomeController@index')->name('index'); 
+
+Route::get('/', function(){
+    return view('index');
+})->name('index'); //'HomeController@index')->name('index'); 
 //Backend Routes
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/', function () {
         return view('admin/index');
     });
-    Route::get('food', function () {
-        return view('admin/food');
-    });
+    Route::resource('/food/','FoodsController');
 });
