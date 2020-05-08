@@ -374,9 +374,6 @@ section.aboutcompanyOleo {
     z-index: 10;
 }
 
-.companyContent {
-    /* position: relative; */
-}
 .roundedContent {
     overflow: hidden;
 }
@@ -1184,6 +1181,35 @@ h6.rightIngredient {
 .reservationTitle h1 {
     letter-spacing: 5px;
     font-family: "OpenSans-Bold";
+}
+.form-group {
+    margin-top: 20px;
+}
+.form-control {
+    width: auto;
+}
+.reserve-form {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    align-items: center;
+}
+form.form-horizontal {
+    flex-basis: 40%;
+}
+.reserve-img {
+    flex-basis: 30%;
+}
+.reserve-btn {
+    font-family: "OpenSans-Bold";
+    font-size: 20px;
+    text-align: left;
+    text-transform: uppercase;
+    margin: 0 auto;
+    overflow: hidden;
+}
+.reserve-img img {
+    width: 100%;
 }
 
 /* /// Contacts /// */

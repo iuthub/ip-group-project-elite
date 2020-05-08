@@ -781,55 +781,6 @@
         </script>
         <!-- slick -->
         <script src="js/slick.min.js"></script>
-
-        <script>
-            $(document).ready(function () {
-                $(".slider-for").slick({
-                    slidesToShow: 1,
-                    slidesToScroll: 1,
-                    arrows: false,
-                    speed: 500,
-                    fade: true,
-                    asNavFor: ".slider-nav",
-                });
-
-                $(".slider-nav").slick({
-                    slidesToShow: 2,
-                    slidesToScroll: 1,
-                    infinite: true,
-                    prevArrow:
-                        '<img src="img/left-arrow-angle.svg" alt="" class="left-arrow" >',
-                    nextArrow:
-                        '<img src="img/right-arrow-angle.svg" alt="" class="right-arrow" >',
-                    centerMode: true,
-                    centerPadding: "15px",
-                    focusOnSelect: true,
-                    asNavFor: ".slider-for",
-                    // autoplay: true,
-                    // autoplaySpeed: 5000,
-                    responsive: [
-                        {
-                            breakpoint: 768,
-                            settings: {
-                                slidesToShow: 2,
-                                slidesToScroll: 1,
-                                infinite: true,
-                                dots: false,
-                            },
-                        },
-                        {
-                            breakpoint: 495,
-                            settings: {
-                                slidesToShow: 1,
-                                slidesToScroll: 1,
-                                infinite: true,
-                                dots: false,
-                            },
-                        },
-                    ],
-                });
-            });
-        </script>
         <script>
             $(document).ready(function () {
                 $(".recallSlider").slick({
