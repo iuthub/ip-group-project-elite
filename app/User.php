@@ -9,6 +9,14 @@ use Illuminate\Notifications\Notifiable;
 class User extends Authenticatable //implements MustVerifyEmail
 {
     use Notifiable;
+    
+    public function contacts() {
+        return $this->hasMany('App\Contact');
+    }
+
+    public function bookings() {
+        return $this->hasMany('App\Booking');
+    }
 
     /**
      * The attributes that are mass assignable.
@@ -44,11 +52,4 @@ class User extends Authenticatable //implements MustVerifyEmail
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
-    public function constacts() {
-        return $this->hasMany('App\Contact');
-    }
-
-    public function bookings() {
-        return $this->hasMany('App\Booking');
-    }
 }

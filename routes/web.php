@@ -17,12 +17,19 @@ use Illuminate\Support\Facades\Auth;
 /*Route::get('/', function () {
     return view('index');
 })->name('index');*/
-Route::get('reservation', function () {
-    return view('reservation');
-})->name('reservation');
-Route::get('contact', function () {
-    return view('contacts');
-})->name('contact');
+Route::get('reservation', 
+'BookingsController@index'
+)->name('reservation');
+
+Route::post('contacts.create', 
+'ContactsController@newContact'
+)->name('newContact');
+
+
+
+Route::get('contacts', 
+'ContactsController@index'
+)->name('contact');
 Route::get('menu', function () {
     return view('menu');
 })->name('menu');
@@ -40,9 +47,9 @@ Route::get('/', 'HomeController@index')->name('index');
 //Backend Routes
 Route::group(['prefix' => 'admin'], function () {
     Route::get('/', function () {
-        return view('admin/index');
-    });
+        return view('admin.index');
+    })->name('adminIndex');
     Route::get('food', function () {
-        return view('admin/food');
+        return view('admin.food');
     });
 });

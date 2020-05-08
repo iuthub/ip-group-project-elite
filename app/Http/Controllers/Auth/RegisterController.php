@@ -47,6 +47,7 @@ class RegisterController extends Controller
      * @param  array  $data
      * @return \Illuminate\Contracts\Validation\Validator
      */
+    //custom validation accoording to ip project criteria
     protected function validator(array $data)
     {
         return Validator::make($data, [

@@ -28,32 +28,37 @@
                 </div>
               </div>
               <div class="contactForms col-md-6">
-                <h2>Leave Comments</h2>
-                <form>
-                  <input
-                    class="sign-name"
-                    type="text"
-                    name=""
-                    id=""
-                    placeholder="Name"
-                  />
-                  <input
-                    class="sign-email"
-                    type="email"
-                    name=""
-                    id=""
-                    placeholder="Email"
-                  />
-                  <input
-                    class="sign-sms"
-                    type="text"
-                    name=""
-                    id=""
-                    placeholder="Message"
-                  />
-                </form>
-                <div class="products-btn contact-btn">
-                  <h4><a href="#">Send</a></h4>
+                
+                @if(Session::has('info'))
+                <div class="row">
+                    <div class="alert alert-info">
+                        {{ Session::get('info') }}
+                    </div>
+                </div>
+                @endif
+                @error('message')
+                      <div class="alert alert-warning row">
+                        <span>
+                            <strong>{{ $message }}</strong>
+                        </span>
+                      </div>
+                    @enderror
+              
+              <div class="row">
+                  <h2>Leave Comments</h2>
+                <form method="post" id="contactForm" action="{{route("newContact")}}">
+                    @csrf
+                  <input type="hidden" name ="id" value="{{Auth::user()->id}}">
+                    <input
+                      class="sign-sms"
+                      type="text"
+                      name="message"
+                      placeholder="Message"
+                    />
+                  </form>
+                  <div class="products-btn contact-btn ">
+                    <h4><a onclick="document.getElementById('contactForm').submit();">Send</a></h4>
+                  </div>
                 </div>
               </div>
             </div>

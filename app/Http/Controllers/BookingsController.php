@@ -8,11 +8,20 @@ use App\Booking;
 class BookingsController extends Controller
 {
     //
-    protected function validate(Request $req) {
+    /*
+    public function validate(Request $req) {
         $this->validate( $req,[
             'date' => 'required|date',
             'hour' => 'required',
             'numPerson' => 'required'
         ]);
+    }*/
+    public function __construct()
+    {
+       $this->middleware('auth'); //verified
+    }
+    public function index()
+    {
+        return view('reservation');
     }
 }

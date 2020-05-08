@@ -41,24 +41,35 @@
               </ul>
             </div>
             {{-- loginlogout --}}
-            <form class="form-inline">
-              <div class="md-form my-0">
-                <button class="btn btn-primary">Login</button>
-              </div>
-            </form>
-            <form class="form-inline">
-              <div class="md-form my-0">
-                <button class="btn btn-primary">Login</button>
-              </div>
-            </form>
-            <form class="form-inline">
-              <div class="md-form my-0">
-                <button class="btn btn-primary">Login</button>
-              </div>
-            </form>
-          </nav>
+            <!--Dropdown primary-->
+              <div class="dropdown">
 
+                <!--Trigger-->
+                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
+                  aria-haspopup="true" aria-expanded="false">Mirshod</button>
+
+
+                <!--Menu-->
+                <div class="dropdown-menu dropdown-primary">
+                  <a class="dropdown-item" href="{{ route('logout') }}" 
+                    onclick="event.preventDefault();
+                              document.getElementById('logout-form').submit();">logout</a>
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+                </div>
+              </div>
+              <!--/Dropdown primary-->
+          </nav>
+          @if(Session::has('info'))
+          <div class="row justify-content-md-center">
+              <div class="alert alert-info">
+                  {{ Session::get('info') }}
+              </div>
+          </div>
+          @endif
         <main class="py-4">
+          
             @yield('content')
         </main>
     </div>

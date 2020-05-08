@@ -46,21 +46,7 @@
                                 <li>
                                     <a href="#"
                                         ><i
-                                            class="fab fa-facebook-f"
-                                        ></i
-                                    ></a>
-                                </li>
-                                <li>
-                                    <a href="#"
-                                        ><i
-                                            class="fab fa-instagram"
-                                        ></i
-                                    ></a>
-                                </li>
-                                <li>
-                                    <a href="#"
-                                        ><i
-                                            class="fa fa-shopping-cart"
+                                            class="fa fa-lg fa-shopping-cart"
                                         ></i
                                     ></a>
                                 </li>
@@ -84,7 +70,7 @@
                     <a href="{{route('about')}}">About us</a>
                     </li>
                     <li>
-                    <a href="{{route('menu')}}" class="active">Menu</a>
+                    <a href="{{route('menu')}}">Menu</a>
                     </li>
                 </ul>
                 <ul class="topHeaderList leftlist">
@@ -94,33 +80,31 @@
                     <li>
                     <a href="{{route('contact')}}">Contacts</a>
                     </li>
-                    <li>
-                        <a href="#">Register|Login</a>
-                    </li>
-                    <li>
-                        <a href="#">Logout</a>
-                    </li>
-                </ul>
+                    {{-- login logout --}}
+                     @guest
+                            <li>
+                                <a href="{{ route('login') }}">Login</a>
+                            </li>
+                            @if (Route::has('register'))
+                                <li>
+                                    <a href="{{ route('register') }}">Register</a>
+                                </li>
+                            @endif
+                        @else
+                            <li>
+                               
+                                    <a href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                                        Logout
+                                    </a>
 
-                <div class="topHeaderIcons anothericon">
-                    <ul class="IconSet">
-                        <li>
-                            <a href="#"
-                                ><i class="fab fa-facebook-f"></i
-                            ></a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                ><i class="fab fa-instagram"></i
-                            ></a>
-                        </li>
-                        <li>
-                            <a href="#"
-                                ><i class="fa fa-shopping-cart"></i
-                            ></a>
-                        </li>
-                    </ul>
-                </div>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                        @csrf
+                                    </form>
+                            </li>
+                        @endguest
+                </ul>
             </div>
         </div>
     </div>
