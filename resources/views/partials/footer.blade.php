@@ -16,9 +16,11 @@
                         <li>
                             <a href="contacts.html">Contacts</a>
                         </li>
-                        <li>
-                            <a href="register.html">Register now</a>
-                        </li>
+                        @if(Auth::guest())
+                            <li>
+                                <a href="register.html">Register now</a>
+                            </li>
+                        @endif
                     </ul>
                 </div>
                 <div class="footerAddress">

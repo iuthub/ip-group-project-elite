@@ -80,30 +80,25 @@
                     <li>
                     <a href="{{route('contact')}}">Contacts</a>
                     </li>
-                    {{-- login logout --}}
-                     @guest
-                            <li>
-                                <a href="{{ route('login') }}">Login</a>
-                            </li>
-                            @if (Route::has('register'))
-                                <li>
-                                    <a href="{{ route('register') }}">Register</a>
-                                </li>
-                            @endif
-                        @else
-                            <li>
-                               
-                                    <a href="{{ route('logout') }}"
-                                       onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        Logout
-                                    </a>
+                    @if(Auth::guest())
+                        <li>
+                            <a href="{{route('register')}}">Register</a>
+                        </li>
+                        <li>
+                            <a href="{{route('login')}}">login</a>
+                        </li>
+                    @else
+                        <li>
+                            <a href="{{route('logout')}}">Logout</a>
+                        </li>
+                    @endif
+                </ul>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                                        @csrf
-                                    </form>
-                            </li>
-                        @endguest
+                    <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                        @csrf
+                    </form>
+            </li>
+        @endguest
                 </ul>
             </div>
         </div>
