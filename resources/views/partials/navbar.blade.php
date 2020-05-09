@@ -59,8 +59,7 @@
         <div
             class="topHeaderBottom sidebar container wow fadeInDown"
             data-wow-duration="2s"
-            data-wow-delay="0.5s"
-        >
+            data-wow-delay="0.5s">
             <div class="menu">
                 <ul class="topHeaderList">
                     <li>
@@ -98,7 +97,7 @@
                         @csrf
                     </form>
             </li>
-        @endguest
+        
                 </ul>
             </div>
         </div>

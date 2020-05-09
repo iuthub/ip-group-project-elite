@@ -5,26 +5,23 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Food;
 
-class FoodsController extends Controller
-{
-<<<<<<< HEAD
-    //
+class FoodsController extends Controller {
+
+    static $categoryToNumber = ['Breakfast' => 0, 'Lunch' => 1, 'Dinner' => 2, 'Dessert' => 3, 'Drink' => 4];
+
     public function __construct()
     {
        $this->middleware('auth'); //verified
     }
-    public function index()
-    {
-        return view('index');
-=======
-    /**
+  /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
     public function index()
     {
-        return view('admin/food.index');
+        $foods = Food::all();
+        return view('admin/food.index')->with('foods', $foods);
     }
 
     /**
@@ -45,7 +42,37 @@ class FoodsController extends Controller
      */
     public function store(Request $request)
     {
-        return 'HELLO THERE, YOU DID IT';
+        $this->validate($request, [
+            'name' => 'required',
+            'price' => 'required',
+            'food_image' => 'image|max:1999'
+        ]);
+
+        //Handle File Upload
+        if($request->hasFile('food_image')) {
+            //Get filename with the extension
+            $filenameWithExt = $request->file('food_image')->getClientOriginalName();
+            //Get just filename
+            $filename = pathinfo($filenameWithExt, PATHINFO_FILENAME);
+            //Get just extension
+            $extension = $request->file('food_image')->getClientOriginalExtension();
+            //Filename to store
+            $filenameToStore = $filename . '_' . time() . '.' . $extension;
+            //Upload Image
+            $path = $request->file('food_image')->storeAs('public/food_images', $filenameToStore);
+        }
+
+        $food = new Food();
+        $food->name=$request->input('name');
+        $food->price=$request->input('price');
+        $food->rank=$request->input('rank');
+        $food->category=self::$categoryToNumber[$request->input('category')];
+        $food->food_image=$filenameToStore;
+        $food->description=$request->input('description');
+        $food->save();
+        
+        return redirect('/admin/food/');
+
     }
 
     /**
@@ -67,7 +94,7 @@ class FoodsController extends Controller
      */
     public function edit($id)
     {
-        //
+        return 'You are in edit';
     }
 
     /**
@@ -90,7 +117,6 @@ class FoodsController extends Controller
      */
     public function destroy($id)
     {
-        //
->>>>>>> d9e260f8a6139a21e035f641f7b4908acb42aec1
+        return 'You are deleting food with id number' . $id;
     }
 }
