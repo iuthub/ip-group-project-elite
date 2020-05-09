@@ -11,7 +11,8 @@ class Booking extends Model
         'date',
         'hour',
         'numPerson',
-        'message'
+        'message',
+        'status'
     ];
     public function user() {
         return $this->belongsTo('App\User');

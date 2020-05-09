@@ -41,7 +41,6 @@ class BookingsController extends Controller
         $user = Auth::user();
         $booking = new Booking(
             [
-                'id' => $user->id,
                 'message' => $req->input('message'),
                 'numPerson' => $req->input('numPerson'),
                 'date' => $req->input('date'),
@@ -80,7 +79,7 @@ class BookingsController extends Controller
     }
     
     public function deleteBooking($id) {
-        Booking::find($id)->delete();
-        return "success";
+        $booking = Booking::findOrFail($id);
+        $booking->delete();
     }
 }

@@ -29,8 +29,7 @@
                         <div class="titleContent">
                           <h4>Checked</h4>
                           <p>
-                            Lorem ipsum dolor, sit amet consectetur adipisicing
-                            elit. Neque, autem.
+                            Our restaurant was checked by Michelin inspectors several times.It was considered for gaining a star.
                           </p>
                         </div>
                       </div>
@@ -45,9 +44,7 @@
                         <div class="titleContent">
                           <h4>Offers</h4>
                           <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Aperiam quidem quaerat autem eaque optio
-                            ratione.
+                            What we offer is sitting in beautifully designed place and tasting meals as a truth Aristocrat.
                           </p>
                         </div>
                       </div>
@@ -62,8 +59,7 @@
                         <div class="titleContent">
                           <h4>Pride</h4>
                           <p>
-                            Lorem ipsum dolor sit amet consectetur adipisicing
-                            elit. Unde, a!
+                            Not every restaurant bragging with having 3 Michelin stars. We are proud to announce about that. Thank you for being with us.
                           </p>
                         </div>
                       </div>

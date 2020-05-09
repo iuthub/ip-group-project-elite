@@ -14,32 +14,16 @@ use Illuminate\Support\Facades\Auth;
 |
 */
 
-/*Route::get('/', function () {
-    return view('index');
-})->name('index');*/
-Route::post('contacts.create', 
-'ContactsController@newContact'
-)->name('newContact');
 
-Route::get('contacts', 
-'ContactsController@index'
-)->name('contact');
-
-Route::get('menu', function () {
-    return view('menu');
-})->name('menu');
-
-Route::get('order', function () {
-    return view('home');
-})->name('order');
-
+Route::get('/','HomeController@index')->name('homeIndex');
+Route::get('menu','HomeController@menu' )->name('menu');
 Route::get('about', function () {
     return view('aboutUs');
 })->name('about');
+Route::get('contacts','ContactsController@index')->name('contact');
+Route::post('contacts.create','ContactsController@newContact')->name('newContact');
 
-Route::get('book', function () {
-    return view('aboutUs');
-})->name('book');
+
 
   
 Route::group(['prefix' => 'reservation'
@@ -48,14 +32,8 @@ Route::group(['prefix' => 'reservation'
     Route::post('/create', 'BookingsController@newBooking')->name('newBooking');
     Route::post('/edit', 'BookingsController@postEdit')->name('postEdit');
     Route::get('/edit/{id}', 'BookingsController@getEdit')->name('getEdit');
-    Route::get('/delete/?{id}', 'BookingsController@deleteBooking')->name('deleteBooking');  
+    Route::get('/delete/{id}', 'BookingsController@deleteBooking')->name('deleteBooking');  
 });
-
-Route::get('/', function(){
-    return view('index');
-})->name('index'); 
-
-
 
 Auth::routes(); //['verify' => true]
 
@@ -63,8 +41,12 @@ Auth::routes(); //['verify' => true]
 Route::group(['prefix' => 'admin',
         'middleware'=> ['auth','admin']
 ], function () {
-    Route::get('/', function () {
-        return view('admin/index');
-    })->name('adminIndex');
+    Route::get('/', 'AdminHomeController@allUsers')->name('adminIndex');
+    Route::get('user/delete/{id}', 'AdminHomeController@deleteUser')->name('deleteUser');
+    Route::get('/bookings', 'AdminHomeController@allBookings')->name('allBookings');
+    Route::get('/bookings/delete/{id}', 'AdminHomeController@deleteBookingAdmin')->name('deleteBookingAdmin');
+    Route::get('/bookings/edit/{id}', 'AdminHomeController@editBookingAdmin')->name('editBookingAdmin');
+    Route::get('/contacts', 'AdminHomeController@allContacts')->name('allContacts');
+    Route::get('/contacts/delete/{id}', 'AdminHomeController@deleteContactAdmin')->name('deleteContactAdmin');
     Route::resource('/food/','FoodsController');
 });

@@ -134,7 +134,7 @@
                           @endif                                            
                         </th>
                         <th>
-                          <a class="btn btn-danger" id="deleteButton" jsId="{{$booking->id}}">Delete</a>
+                          <a class="btn btn-danger deleteButton" jsId="{{$booking->id}}">Delete</a>
                         </th>
                         <th>
                           <a class="btn btn-info" href="{{route('getEdit',['id'=>$booking->id])}}">Update</a>

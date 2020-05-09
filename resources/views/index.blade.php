@@ -76,10 +76,7 @@
                                                 <div class="titleContent">
                                                     <h4>Checked</h4>
                                                     <p>
-                                                        Lorem ipsum dolor, sit
-                                                        amet consectetur
-                                                        adipisicing elit. Neque,
-                                                        autem.
+                                                        Our restaurant was checked by Michelin inspectors several times.It was considered for gaining a star.
                                                     </p>
                                                 </div>
                                             </div>
@@ -97,12 +94,7 @@
                                                 <div class="titleContent">
                                                     <h4>Offers</h4>
                                                     <p>
-                                                        Lorem ipsum dolor sit
-                                                        amet consectetur
-                                                        adipisicing elit.
-                                                        Aperiam quidem quaerat
-                                                        autem eaque optio
-                                                        ratione.
+                                                        What we offer is sitting in beautifully designed place and tasting meals as a truth Aristocrat.
                                                     </p>
                                                 </div>
                                             </div>
@@ -120,10 +112,7 @@
                                                 <div class="titleContent">
                                                     <h4>Pride</h4>
                                                     <p>
-                                                        Lorem ipsum dolor sit
-                                                        amet consectetur
-                                                        adipisicing elit. Unde,
-                                                        a!
+                                                        Not every restaurant bragging with having 3 Michelin stars. We are proud to announce about that. Thank you for being with us.
                                                     </p>
                                                 </div>
                                             </div>
@@ -205,7 +194,7 @@
                                     <div class="border-wrap">
                                         <div class="products-border">
                                             <img
-                                                src="img/bg-11-copyright-155x85.jpg"
+                                                src="storage/app/public/food_images/mojito_1589041206.jpg"
                                                 class="creamy"
                                                 alt=""
                                             />
@@ -296,7 +285,7 @@
                                 <div class="clearfix"></div>
                             </div>
                             <div class="products-btn">
-                                <a class="creative" href="products.html">
+                                <a class="creative" href="{{route('menu')}}">
                                     <span></span>
                                     <span></span>
                                     <span></span>
@@ -447,9 +436,11 @@
                         <div class="row">
                             <div class="recalls">
                                 <div class="recallsTitle">
-                                    <h1>Recalls</h1>
+                                    <h1>Reviews</h1>
                                 </div>
-                                <div class="recallSlider">
+                                <div class="recallSlider">  
+
+                                    @foreach ($contacts as $contact)
                                     <div class="recalls1 col-md-6 col-sm-6">
                                         <div class="recallText">
                                             <div class="recallQuotes">
@@ -459,66 +450,16 @@
                                                 />
                                             </div>
                                             <h4>
-                                                Lorem ipsum dolor sit amet
-                                                consectetur adipisicing elit.
-                                                Omnis, quae, laudantium
-                                                aspernatur ab possimus, ipsa
-                                                labore ducimus amet quidem earum
-                                                illum quas eos? Incidunt, illum
-                                                aspernatur! Similique repellat
-                                                animi optio, sequi cupiditate
-                                                laboriosam eveniet explicabo.
+                                                {{$contact->message}}
                                             </h4>
                                         </div>
                                         <div class="recallPerson">
-                                            <h3>John Doe</h3>
-                                            <h4>Chef</h4>
+                                            <h3>{{$contact->user->name}}</h3>
+                                            <h4>Customer</h4>
                                         </div>
                                     </div>
-                                    <div class="recalls1 col-md-6 col-sm-6">
-                                        <div class="recallText">
-                                            <div class="recallQuotes">
-                                                <img
-                                                    src="img/quotes.png"
-                                                    alt=""
-                                                />
-                                            </div>
-                                            <h4>
-                                                Splendid spot to spend an
-                                                evening while in Fira. Really
-                                                impressed with the appetizing
-                                                menu and the wide variety of
-                                                wines and wonderful staff.
-                                                Special thanks to Aineas!
-                                            </h4>
-                                        </div>
-                                        <div class="recallPerson">
-                                            <h3>John Doe</h3>
-                                            <h4>Chef</h4>
-                                        </div>
-                                    </div>
-                                    <div class="recalls1 col-md-6 col-sm-6">
-                                        <div class="recallText">
-                                            <div class="recallQuotes">
-                                                <img
-                                                    src="img/quotes.png"
-                                                    alt=""
-                                                />
-                                            </div>
-                                            <h4>
-                                                The best cocktails during the
-                                                summer, that's for sure. A
-                                                well-thought and classy bar
-                                                along with stunning views. Higly
-                                                recommended for a romantic
-                                                dinner
-                                            </h4>
-                                        </div>
-                                        <div class="recallPerson">
-                                            <h3>John Doe</h3>
-                                            <h4>Client</h4>
-                                        </div>
-                                    </div>
+                                    @endforeach        
+                                    
                                 </div>
                             </div>
                         </div>

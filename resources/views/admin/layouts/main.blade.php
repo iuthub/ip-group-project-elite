@@ -19,24 +19,24 @@
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-lg navbar-dark elegant-color">
-            <a class="navbar-brand" href="#">Giardino Backend</a>
+            <a class="navbar-brand" href="{{route('adminIndex')}}">Giardino Backend</a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
               aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
               <span class="navbar-toggler-icon"></span>
             </button>
             <div class="collapse navbar-collapse" id="navbarNav">
               <ul class="navbar-nav">
-                <li class="nav-item active pl-5">
-                  <a class="nav-link" href="#">Reservations<span class="sr-only">(current)</span></a>
+                <li class="nav-item pl-5">
+                  <a class="nav-link" href="{{route('adminIndex')}}">Users</a>
                 </li>
                 <li class="nav-item pl-2">
-                  <a class="nav-link" href="#">Orders</a>
+                  <a class="nav-link" href="{{route('allBookings')}}">Orders</a>
                 </li>
                 <li class="nav-item pl-2">
-                  <a class="nav-link" href="#">Food</a>
+                  <a class="nav-link" href="{{route('allContacts')}}">Messages</a>
                 </li>
                 <li class="nav-item pl-2">
-                  <a class="nav-link disabled" href="#">Disabled</a>
+                  <a class="nav-link" href="#">Foods</a>
                 </li>
               </ul>
             </div>
@@ -46,7 +46,7 @@
 
                 <!--Trigger-->
                 <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
-                  aria-haspopup="true" aria-expanded="false">Mirshod</button>
+                  aria-haspopup="true" aria-expanded="false">{{Auth::user()->name}}</button>
 
 
                 <!--Menu-->
@@ -83,5 +83,51 @@
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.4.1/js/bootstrap.min.js"></script>
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.16.0/js/mdb.min.js"></script>
+    <script>
+      $(document).ready(function() {
+            $('.deleteButton').on('click', function() {
+                var id = $(this).attr('jsId');
+                req = $.ajax({
+                    url: 'admin/user/delete/'+id,
+                    success: function() {
+                        $('#ajax' + id).remove();
+                    }
+                });                
+            });
+            $('.deleteBookButton').on('click', function() {
+                var id = $(this).attr('jsBookId');
+                req = $.ajax({
+                    url: 'bookings/delete/'+id,
+                    success: function() {
+                        $('#book' + id).remove();
+                    }
+                });                
+            });
+            $('.updateBookButton').on('click', function() {
+                var id = $(this).attr('jsBookId');
+                var len = id.length;
+                var e = document.getElementById("booking"+id);
+                var role = e.options[e.selectedIndex].value;
+                req = $.ajax({
+                    url: 'bookings/edit/'+id+role+len,
+                    success: function() {
+                        $("booking"+ id +' option:selected').removeAttr('selected');
+                        $("booking"+ id + " option[value='"+ role +"']").attr("selected","selected");
+                        $(this).fadeIn(1000).fadeOut(1000);
+                    }
+                });                
+            });
+            $('.deleteContactButton').on('click', function() {
+                var id = $(this).attr('jsId');
+                req = $.ajax({
+                    url: 'contacts/delete/'+id,
+                    success: function() {
+                        $('#ajaxContact' + id).remove();
+                    }
+                });                
+            });
+            
+        });
+    </script>
 </body>
 </html>

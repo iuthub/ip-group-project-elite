@@ -22,7 +22,7 @@
                     <div class="col-md-4 col-sm-4 logo">
                         <div class="topHeaderLogo">
                             <div class="thl-wrapper">
-                                <a href="index.html">
+                                <a href="{{route('homeIndex')}}">
                                     <img
                                         src="img/logo.png"
                                         alt=""
@@ -40,18 +40,7 @@
                                 <h4>Call us</h4>
                                 <h5>+998 97 777 77 77</h5>
                             </div>
-                        </div>
-                        <div class="topHeaderIcons">
-                            <ul class="IconSet">
-                                <li>
-                                    <a href="#"
-                                        ><i
-                                            class="fa fa-lg fa-shopping-cart"
-                                        ></i
-                                    ></a>
-                                </li>
-                            </ul>
-                        </div>
+                        </div>                        
                     </div>
                 </div>
             </div>
@@ -63,7 +52,7 @@
             <div class="menu">
                 <ul class="topHeaderList">
                     <li>
-                    <a href="{{route('index')}}">Home</a>
+                    <a href="{{route('homeIndex')}}">Home</a>
                     </li>
                     <li>
                     <a href="{{route('about')}}">About us</a>
@@ -74,7 +63,7 @@
                 </ul>
                 <ul class="topHeaderList leftlist">
                     <li>
-                    <a href="{{route('reservation')}}">Reservation </a>
+                    <a href="{{route('reservation')}}">Book </a>
                     </li>
                     <li>
                     <a href="{{route('contact')}}">Contacts</a>

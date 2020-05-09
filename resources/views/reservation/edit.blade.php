@@ -73,7 +73,7 @@
                   </div>
                   <div class="row">                 
                       @csrf
-                    <input type="hidden" name ="id" value="{{Auth::user()->id}}">
+                    <input type="hidden" name ="id" value="{{$booking->id}}">
                       <input
                         class="sign-sms"
                         type="text"

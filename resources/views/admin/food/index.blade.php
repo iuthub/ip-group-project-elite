@@ -11,7 +11,7 @@
                 <!--Card image-->
                 <div class="view overlay">
                     <img class="card-img-top" src="/storage/food_images/{{$food->food_image}}" alt="Card image cap">
-                    <a href="#!">
+                    <a>
                         <div class="mask rgba-white-slight"></div>
                     </a>
                 </div>

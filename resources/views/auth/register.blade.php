@@ -43,7 +43,7 @@
                             <label for="telNumber" class="col-md-4 col-form-label text-md-right">{{ __('Telephone Number') }}</label>
 
                             <div class="col-md-6">
-                                <input id="telNumber" type="text" class="form-control @error('telNumber') is-invalid @enderror" name="telNumber" value="{{ old('telNumber') }}" required>
+                                <input id="telNumber" type="text" placeholder="+998-**-******" class="form-control @error('telNumber') is-invalid @enderror" name="telNumber" value="{{ old('telNumber') }}" required>
 
                                 @error('telNumber')
                                     <span class="invalid-feedback" role="alert">
