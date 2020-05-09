@@ -36,12 +36,13 @@
                   <a class="nav-link" href="{{route('allContacts')}}">Messages</a>
                 </li>
                 <li class="nav-item pl-2">
-                  <a class="nav-link" href="#">Foods</a>
+                  <a class="nav-link" href="{{ route('foodIndex')}}">Foods</a>
                 </li>
               </ul>
             </div>
             {{-- loginlogout --}}
             <!--Dropdown primary-->
+            <a href="{{ route('createNewFood')}}"><button class="btn btn-info" type="button">New Food</button></a>
               <div class="dropdown">
 
                 <!--Trigger-->

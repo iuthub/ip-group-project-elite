@@ -47,6 +47,13 @@ Route::group(['prefix' => 'admin',
     Route::get('/bookings/delete/{id}', 'AdminHomeController@deleteBookingAdmin')->name('deleteBookingAdmin');
     Route::get('/bookings/edit/{id}', 'AdminHomeController@editBookingAdmin')->name('editBookingAdmin');
     Route::get('/contacts', 'AdminHomeController@allContacts')->name('allContacts');
-    Route::get('/contacts/delete/{id}', 'AdminHomeController@deleteContactAdmin')->name('deleteContactAdmin');
-    Route::resource('/food/','FoodsController');
+    Route::get('/contacts/delete/{id}', 'AdminHomeController@deleteContactAdmin')->name('deleteContactAdmin');   
+    
+
+    Route::get('/food', 'FoodsController@index')->name('foodIndex');
+    Route::get('/food/create', 'FoodsController@create')->name('createNewFood');
+    Route::post('/food/store', 'FoodsController@store')->name('storeFood');
+    Route::get('/food/edit/{id}', 'FoodsController@edit')->name('editFood');
+    Route::put('/update/{id}', 'FoodsController@update')->name('updateFood');
+    Route::delete('/delete/{id}', 'FoodsController@destroy')->name('deleteFood');
 });

@@ -1,5 +1,7 @@
-@extends('admin/layouts.main')
+<!-- Gicen Array is used to convert category number to category name -->
+<?php $categoryNumberToName = ['Breakfast', 'Lunch', 'Dinner', 'Dessert', 'Drink']; ?>
 
+@extends('admin/layouts.main')
 @section('content')
 
 <div class="row row-cols-1 row-cols-md-3">
@@ -24,14 +26,14 @@
                     <!--Text-->
                     <p class="card-text">Price: {{$food->price}}</p>
                     <p class="card-text">Rank: {{$food->rank}}</p>
-                    <p class="card-text">Category: {{$food->category}}</p>
+                    <p class="card-text">Category: {{$categoryNumberToName[$food->category]}}</p>
                     <p class="card-text">{{$food->description}}</p>
                     <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
                     
-                    <form action="{{action('FoodsController@edit',  $food->id)}}" method="GET">
+                    <form action="{{ route('editFood',  $food->id)}}" method="GET">
                         <button type="submit" class="btn btn-light-blue btn-md">Edit</button>
                     </form>
-                    <form action="/admin/food/{{$food->id}}" method="GET">
+                    <form action="{{ route('deleteFood', $food->id)}}" method="POST">
                         @method('delete')
                         @csrf
                         <button type="submit" class="btn btn-light-blue btn-md">Delete</button>
@@ -42,5 +44,7 @@
         </div>
     @endforeach
 </div>
-        
+
+<div style="display: flex; justify-content: center;">{{$foods->links()}}</div>
+
 @endsection
