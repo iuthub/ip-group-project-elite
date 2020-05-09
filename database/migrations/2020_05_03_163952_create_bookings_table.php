@@ -21,6 +21,10 @@ class CreateBookingsTable extends Migration
             $table->integer('numPerson')->default(1);
             $table->text('message')->nullable();
             $table->integer('user_id');
+            $table->integer('status')->default(0);
+            //0 -> processing
+            //1 -> cancelled
+            //2 -> done
         });
     }
 

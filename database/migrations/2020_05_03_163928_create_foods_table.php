@@ -18,7 +18,7 @@ class CreateFoodsTable extends Migration
             $table->timestamps();
             $table->string('name');
             $table->text('description');
-            $table->double('narxi');
+            $table->double('price');
             $table->unsignedSmallInteger('category');
             //0->breakfast
             //1->lunch
@@ -27,6 +27,7 @@ class CreateFoodsTable extends Migration
             //4->drink
             $table->integer('rank');
             //1 to 10 given by admin
+            $table->string('food_image');
         });
     }
 

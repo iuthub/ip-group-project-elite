@@ -6,39 +6,39 @@
         <meta http-equiv="X-UA-Compatible" content="ie=edge" />
         <title>Home</title>
         <!-- Favicon -->
-        <link rel="shortcut icon" href="img/logo.png" />
+        <link rel="shortcut icon" href="{{asset('img/logo.png')}}" />
         <link
             rel="stylesheet"
-            href="font-awesome-4.7.0/css/font-awesome.min.css"
+            href="{{asset('font-awesome-4.7.0/css/font-awesome.min.css')}}"
         />
         <!-- Fonts -->
-        <link rel="stylesheet" href="css/fonts.css" />
+        <link rel="stylesheet" href="{{asset('css/fonts.css')}}" />
         <!-- Bootstrap -->
-        <link rel="stylesheet" href="css/bootstrap.min.css" />
+        <link rel="stylesheet" href="{{asset('css/bootstrap.min.css')}}" />
         <!-- owl-carousel -->
-        <link rel="stylesheet" href="css/owl.carousel.min.css" />
-        <link rel="stylesheet" href="css/owl.theme.default.min.css" />
-        <link rel="stylesheet" type="text/css" href="css/animate.css" />
+        <link rel="stylesheet" href="{{asset('css/owl.carousel.min.css')}}" />
+        <link rel="stylesheet" href="{{asset('css/owl.theme.default.min.css')}}" />
+        <link rel="stylesheet" type="text/css" href="{{asset('css/animate.css')}}" />
 
-        <link rel="stylesheet" href="css/style.css" />
+        <link rel="stylesheet" href="{{asset('css/style.css')}}" />
         <!-- slick -->
-        <link rel="stylesheet" href="css/slick.css" />
-        <link rel="stylesheet" href="css/slick-theme.css" />
+        <link rel="stylesheet" href="{{asset('css/slick.css')}}" />
+        <link rel="stylesheet" href="{{asset('css/slick-theme.css')}}" />
         <link
             rel="stylesheet"
             href="https://use.fontawesome.com/releases/v5.0.13/css/all.css"
         />
         <!-- MAIN CSS -->
-        <link rel="stylesheet" href="css/main.css" />
-        <link rel="stylesheet" href="css/media.css" />
+        <link rel="stylesheet" href="{{asset('css/main.css')}}" />
+        <link rel="stylesheet" href="{{asset('css/media.css')}}" />
     </head>
     <body class="menuCanvas">
     
     @yield('content')
     <!-- Scripts -->
     <!-- jquery -->
-    <script src="js/jquery-3.3.1.min.js"></script>
-    <script src="js/owl.carousel.min.js"></script>
+    <script src="{{asset('js/jquery-3.3.1.min.js')}}"></script>
+    <script src="{{asset('js/owl.carousel.min.js')}}"></script>
     <!-- owl-carousel -->
     <script>
       $(document).ready(function () {
@@ -68,7 +68,7 @@
       });
     </script>
     <!-- slick -->
-    <script src="js/slick.min.js"></script>
+    <script src="{{asset('js/slick.min.js')}}"></script>
 
     <script>
       $(document).ready(function () {
@@ -173,10 +173,11 @@
         });
       });
     </script>
-    <script src="js/slick-animate.js"></script>
-    <script src="js/wow.min.js"></script>
+    <script src="{{asset('js/slick-animate.js')}}"></script>
+    <script src="{{asset('js/wow.min.js')}}"></script>
     <script>
       new WOW().init();
     </script>
+    <script src="{{asset('js/ajaxDelet.js')}}"></script>
   </body>
 </html>

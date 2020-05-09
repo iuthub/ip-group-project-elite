@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Booking;
+use App\User;
+use Illuminate\Support\Facades\Auth;
+use Symfony\Component\Translation\Dumper\JsonFileDumper;
 
 class BookingsController extends Controller
 {
@@ -22,6 +25,62 @@ class BookingsController extends Controller
     }
     public function index()
     {
-        return view('reservation');
+        $user = Auth::user();
+        $bookings = $user->bookings;
+        return view('reservation/reservation',[
+            'bookings' => $bookings
+        ]);
+    }
+    public function newBooking(Request $req) {
+        $this->validate($req, [
+            'time' => 'required',
+            'date' => 'required|date',
+            'numPerson' => 'required|regex:/\d{1,}/',
+            'message' => 'nullable'
+        ]);        
+        $user = Auth::user();
+        $booking = new Booking(
+            [
+                'id' => $user->id,
+                'message' => $req->input('message'),
+                'numPerson' => $req->input('numPerson'),
+                'date' => $req->input('date'),
+                'hour' => $req->input('time')
+            ]
+        );
+        $user->bookings()->save($booking);
+        return redirect()->route('reservation')->with([
+            'info' => 'reservation saved, Thank you'
+        ]);
+    }
+
+
+    public function getEdit($id) {
+        $booking = Booking::find($id);
+        return view('reservation/edit',[
+            'booking' => $booking
+        ]);
+    }
+    public function postEdit(Request $req) {
+         $this->validate($req, [
+            'time' => 'required',
+            'date' => 'required|date',
+            'numPerson' => 'required|regex:/\d{1,}/',
+            'message' => 'nullable'
+        ]); 
+        $booking = Booking::find($req->input('id'));
+        $booking->message = $req->input('message');        
+        $booking->hour = $req->input('time');        
+        $booking->date = $req->input('date');        
+        $booking->numPerson = $req->input('numPerson');
+        $booking->save();
+        return redirect()->route('reservation')->with([
+            'info' => "Succeffully updated!"
+        ]);
+    }
+    
+    public function deleteBooking($id) {
+        Booking::find($id)->delete();
+        return "success";
     }
 }
