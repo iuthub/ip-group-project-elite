@@ -1,4 +1,5 @@
-@extends('admin/layouts.main')
+<?php $categories = ['Breakfast', 'Lunch', 'Dinner', 'Dessert', 'Drink'];?>
+@extends('admin/layouts.mainForFood')
 
 @section('content')
     <div class="container" style="width: 600px;">
@@ -17,27 +18,28 @@
         <div class="form-group">
             <label for="category">Category</label>
             <select class="form-control" name="category">
-                <option>Breakfast</option>
-                <option>Lunch</option>
-                <option>Dinner</option>
-                <option>Dessert</option>
-                <option>Drink</option>
+                @for($i = 0; $i < 5; $i++)
+                    @if($i != $food->category)
+                        <option>{{ $categories[$i] }}</option>
+                    @else
+                        <option selected>{{ $categories[$i] }}</option>
+                    @endif
+                @endfor
             </select>
         </div>
 
         <div class="form-group">
             <label for="Rank">Rank</label>
             <select class="form-control" name="rank">
-                <option>1</option>
-                <option>2</option>
-                <option>3</option>
-                <option>4</option>
-                <option>5</option>
-                <option>6</option>
-                <option>7</option>
-                <option>8</option>
-                <option>9</option>
-                <option>10</option>
+               <!-- Showing entered value of rank -->
+                @for($i = 1; $i <= 10; $i++)
+                    @if($i != $food->rank)
+                        <option>{{$i}}</option>
+                    @else
+                        <option selected>{{$i}}</option>
+                    @endif
+                @endfor
+                
             </select>
         </div>
 

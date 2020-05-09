@@ -44,6 +44,7 @@
             <!--Dropdown primary-->
               <div class="dropdown">
 
+                <a href="{{ route('createNewFood')}}"><button class="btn btn-default" type="button">Create Food</button></a>
                 <!--Trigger-->
                 <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown"
                 aria-haspopup="true" aria-expanded="false">{{ auth()->user()->name }}</button>

@@ -1,7 +1,7 @@
 <!-- Gicen Array is used to convert category number to category name -->
 <?php $categoryNumberToName = ['Breakfast', 'Lunch', 'Dinner', 'Dessert', 'Drink']; ?>
 
-@extends('admin/layouts.main')
+@extends('admin/layouts.mainForFood')
 @section('content')
 
 <div class="row row-cols-1 row-cols-md-3">
@@ -44,5 +44,7 @@
         </div>
     @endforeach
 </div>
-        
+
+<div style="display: flex; justify-content: center;">{{$foods->links()}}</div>
+
 @endsection

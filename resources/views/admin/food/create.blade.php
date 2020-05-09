@@ -1,4 +1,4 @@
-@extends('admin/layouts.main')
+@extends('admin/layouts.mainForFood')
 
 @section('content')
     <div class="container" style="width: 600px;">
