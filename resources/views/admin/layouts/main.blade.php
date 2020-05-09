@@ -33,7 +33,7 @@
                   <a class="nav-link" href="#">Orders</a>
                 </li>
                 <li class="nav-item pl-2">
-                  <a class="nav-link" href="#">Food</a>
+                  <a class="nav-link" href="{{action('FoodsController@index')}}">Food</a>
                 </li>
                 <li class="nav-item pl-2">
                   <a class="nav-link disabled" href="#">Disabled</a>

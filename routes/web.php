@@ -55,8 +55,6 @@ Route::get('/', function(){
     return view('index');
 })->name('index'); 
 
-
-
 Auth::routes(); //['verify' => true]
 
 //Backend Routes
@@ -66,5 +64,11 @@ Route::group(['prefix' => 'admin',
     Route::get('/', function () {
         return view('admin/index');
     })->name('adminIndex');
-    Route::resource('/food/','FoodsController');
+
+    Route::get('/food', 'FoodsController@index')->name('foodIndex');
+    Route::get('/food/create', 'FoodsController@create')->name('createNewFood');
+    Route::post('/food/store', 'FoodsController@store')->name('storeFood');
+    Route::get('/food/edit/{id}', 'FoodsController@edit')->name('editFood');
+    Route::put('/update/{id}', 'FoodsController@update')->name('updateFood');
+    Route::delete('/delete/{id}', 'FoodsController@destroy')->name('deleteFood');
 });

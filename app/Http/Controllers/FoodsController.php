@@ -94,7 +94,9 @@ class FoodsController extends Controller {
      */
     public function edit($id)
     {
-        return 'You are in edit';
+        $food = Food::findOrFail($id);
+
+        return view('admin/food/edit')->with('food', $food);
     }
 
     /**
@@ -106,7 +108,7 @@ class FoodsController extends Controller {
      */
     public function update(Request $request, $id)
     {
-        //
+        return 'You are in update';
     }
 
     /**

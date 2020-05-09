@@ -2,15 +2,16 @@
 
 @section('content')
     <div class="container" style="width: 600px;">
-    <form class="border border-light p-5" action="{{ route('storeFood') }}" method="POST" enctype="multipart/form-data">
+    <form class="border border-light p-5" action="{{ route('updateFood', $food->id) }}" method="POST" enctype="multipart/form-data">
+        @method('PUT')
         @csrf
         <div class="form-group">
             <label for="name">Name</label>
-            <input type="text" name="name" class="form-control" placeholder="Name">
+            <input type="text" name="name" class="form-control" placeholder="Name" value="{{$food->name}}">
         </div>
         <div class="form-group">
             <label for="price">Price</label>
-            <input type="text" name="price" class="form-control" placeholder="Price">
+            <input type="text" name="price" class="form-control" placeholder="Price" value="{{$food->price}}">
         </div>
 
         <div class="form-group">
@@ -52,7 +53,7 @@
         <br>
 
         <div class="form-group">
-            <textarea class="form-control" name="description" rows="3" placeholder="Description about food"></textarea>
+            <textarea class="form-control" name="description" rows="3" placeholder="Description about food">{{$food->description}}</textarea>
         </div>
 
         <button class="btn btn-info btn-block" type="submit">Save</button>
