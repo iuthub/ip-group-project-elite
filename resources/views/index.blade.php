@@ -184,7 +184,8 @@
                             <div class="companyTitle productsTitle">
                                 <h1>Popular foods</h1>
                             </div>
-                            <!-- foreach -->
+                            @if(count($foods) == 4)
+                            @for($i = 0; $i < 2; $i++)
                             <div class="productsButter">
                                 <div
                                     class="col-md-6 col-sm-6 butter wow fadeInLeft"
@@ -193,19 +194,18 @@
                                 >
                                     <div class="border-wrap">
                                         <div class="products-border">
-                                            <img
-                                                src="storage/app/public/food_images/mojito_1589041206.jpg"
+                                            <img width="150px" height="auto"
+                                                src="/storage/food_images/{{$foods[$i * 2]->food_image}}"
                                                 class="creamy"
                                                 alt=""
                                             />
                                         </div>
                                     </div>
                                     <div class="butterContent">
-                                        <h4>Bruschetta</h4>
-                                        <h5>17$</h5>
+                                        <h4>{{$foods[$i * 2]->name}}</h4>
+                                        <h5>{{$foods[$i * 2]->price}}$</h5>
                                         <p>
-                                            Tomato Reduction base, Mozzarella,
-                                            Torn Basil, Olive Oil
+                                            {{$foods[$i * 2]->description}}
                                         </p>
                                     </div>
                                 </div>
@@ -216,74 +216,25 @@
                                 >
                                     <div class="border-wrap">
                                         <div class="products-border">
-                                            <img
-                                                src="img/bg-11-copyright-155x85.jpg"
+                                            <img width="150px" height="auto"
+                                                src="/storage/food_images/{{$foods[$i * 2 + 1]->food_image}}"
                                                 class="creamy"
                                                 alt=""
                                             />
                                         </div>
                                     </div>
                                     <div class="butterContent">
-                                        <h4>Bruschetta</h4>
-                                        <h5>17$</h5>
+                                        <h4>{{$foods[$i * 2 + 1]->name}}</h4>
+                                        <h5>{{$foods[$i * 2 + 1]->price}}$</h5>
                                         <p>
-                                            Tomato Reduction base, Mozzarella,
-                                            Torn Basil, Olive Oil
+                                            {{$foods[$i * 2 + 1]->description}}
                                         </p>
                                     </div>
                                 </div>
                                 <div class="clearfix"></div>
                             </div>
-                            <!-- endforeach -->
-                            <div class="productsButter">
-                                <div
-                                    class="col-md-6 col-sm-6 butter wow fadeInLeft"
-                                    data-wow-duration="2s"
-                                    data-wow-delay="0.5s"
-                                >
-                                    <div class="border-wrap">
-                                        <div class="products-border">
-                                            <img
-                                                src="img/bg-11-copyright-155x85.jpg"
-                                                class="creamy"
-                                                alt=""
-                                            />
-                                        </div>
-                                    </div>
-                                    <div class="butterContent">
-                                        <h4>Bruschetta</h4>
-                                        <h5>17$</h5>
-                                        <p>
-                                            Tomato Reduction base, Mozzarella,
-                                            Torn Basil, Olive Oil
-                                        </p>
-                                    </div>
-                                </div>
-                                <div
-                                    class="col-md-6 col-sm-6 margarine wow fadeInRight"
-                                    data-wow-duration="2s"
-                                    data-wow-delay="1s"
-                                >
-                                    <div class="border-wrap">
-                                        <div class="products-border">
-                                            <img
-                                                src="img/bg-11-copyright-155x85.jpg"
-                                                class="creamy"
-                                                alt=""
-                                            />
-                                        </div>
-                                    </div>
-                                    <div class="butterContent">
-                                        <h4>Bruschetta</h4>
-                                        <h5>17$</h5>
-                                        <p>
-                                            Tomato Reduction base, Mozzarella,
-                                            Torn Basil, Olive Oil
-                                        </p>
-                                    </div>
-                                </div>
-                                <div class="clearfix"></div>
-                            </div>
+                            @endfor
+                            @endif
                             <div class="products-btn">
                                 <a class="creative" href="{{route('menu')}}">
                                     <span></span>
