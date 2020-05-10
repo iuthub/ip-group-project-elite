@@ -27,7 +27,7 @@ class HomeController extends Controller
     public function index()
     {   
         $contacts = Contact::orderBy('created_at','desc')->take(4)->get();
-        $foods = Food::orderBy('rank', 'desc')
+        $foods = Food::orderBy('rank', 'asc')
                ->take(4)
                ->get();
 
