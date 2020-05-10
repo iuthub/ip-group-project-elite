@@ -55,5 +55,5 @@ Route::group(['prefix' => 'admin',
     Route::post('/food/store', 'FoodsController@store')->name('storeFood');
     Route::get('/food/edit/{id}', 'FoodsController@edit')->name('editFood');
     Route::put('/update/{id}', 'FoodsController@update')->name('updateFood');
-    Route::delete('/delete/{id}', 'FoodsController@destroy')->name('deleteFood');
+    Route::get('/delete/{id}', 'FoodsController@destroy')->name('deleteFood');
 });

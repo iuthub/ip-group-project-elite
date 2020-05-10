@@ -7,6 +7,7 @@ use App\Booking;
 use App\User;
 use Illuminate\Support\Facades\Auth;
 use Symfony\Component\Translation\Dumper\JsonFileDumper;
+use Illuminate\Support\Facades\Gate;
 
 class BookingsController extends Controller
 {
@@ -68,6 +69,11 @@ class BookingsController extends Controller
             'message' => 'nullable'
         ]); 
         $booking = Booking::find($req->input('id'));
+        if(Gate::denies('update-smth', $booking)) {
+            return redirect()->back()->with([
+                'info' => "You are not authorized for edit!"
+            ]);
+        }
         $booking->message = $req->input('message');        
         $booking->hour = $req->input('time');        
         $booking->date = $req->input('date');        
@@ -80,6 +86,12 @@ class BookingsController extends Controller
     
     public function deleteBooking($id) {
         $booking = Booking::findOrFail($id);
+        if(Gate::denies('update-smth', $booking)) {
+            return redirect()->back()->with([
+                'info' => "You are not authorized for delete!"
+            ]);
+        }
+        
         $booking->delete();
     }
 }

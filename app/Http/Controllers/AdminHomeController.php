@@ -20,7 +20,7 @@ class AdminHomeController extends Controller
     }
     public function allBookings() {
         $bookings = Booking::all();
-        $users = User::where('role','1')->get();
+        $users = User::all();
         return view('admin/bookings', [
             'bookings' => $bookings,
             'users' => $users

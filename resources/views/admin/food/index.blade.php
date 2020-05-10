@@ -6,7 +6,7 @@
 
 <div class="row row-cols-1 row-cols-md-3">
     @foreach ($foods as $food)
-        <div class="col mb-4">
+        <div class="col mb-4" id="ajaxFood{{$food->id}}">
         <!-- Card -->
             <div class="card">
 
@@ -33,11 +33,7 @@
                     <form action="{{ route('editFood',  $food->id)}}" method="GET">
                         <button type="submit" class="btn btn-light-blue btn-md">Edit</button>
                     </form>
-                    <form action="{{ route('deleteFood', $food->id)}}" method="POST">
-                        @method('delete')
-                        @csrf
-                        <button type="submit" class="btn btn-light-blue btn-md">Delete</button>
-                    </form>
+                    <a class="btn btn-danger btn-md deleteFoodButton" jsFoodId="{{$food->id}}">Delete</a>                    
                 </div>
 
             </div>

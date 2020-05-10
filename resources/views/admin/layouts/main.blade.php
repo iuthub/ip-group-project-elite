@@ -85,6 +85,7 @@
     <!-- MDB core JavaScript -->
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mdbootstrap/4.16.0/js/mdb.min.js"></script>
     <script>
+      //ajax for not refreshing whole page for not making poor admin angry
       $(document).ready(function() {
             $('.deleteButton').on('click', function() {
                 var id = $(this).attr('jsId');
@@ -124,6 +125,15 @@
                     url: 'contacts/delete/'+id,
                     success: function() {
                         $('#ajaxContact' + id).remove();
+                    }
+                });                
+            });
+            $('.deleteFoodButton').on('click', function() {
+                var id = $(this).attr('jsFoodId');
+                req = $.ajax({
+                    url: 'delete/'+id,
+                    success: function() {
+                        $('#ajaxFood' + id).remove();
                     }
                 });                
             });
