@@ -30,24 +30,11 @@
                    
                     <p class="card-text">{{$food->description}}</p>
                     <!-- Provides extra visual weight and identifies the primary action in a set of buttons -->
-<<<<<<< HEAD
                     
                     <form action="{{ route('editFood',  $food->id)}}" method="GET">
                         <button type="submit" class="btn btn-light-blue btn-md">Edit</button>
                     </form>
                     <a class="btn btn-danger btn-md deleteFoodButton" jsFoodId="{{$food->id}}">Delete</a>                    
-=======
-                    <div class="row">
-                        <form style="col-md-6" action="{{ route('editFood',  $food->id)}}" method="GET">
-                            <button type="submit" class="btn btn-light-blue btn-md">Edit</button>
-                        </form>
-                        <form style="col-md-6" action="{{ route('deleteFood', $food->id)}}" method="POST">
-                            @method('delete')
-                            @csrf
-                            <button type="submit" class="btn btn-light-blue btn-md">Delete</button>
-                        </form>
-                        </div>
->>>>>>> 725078f7d724163105dafd6bddc0b0bdc95f6b45
                 </div>
 
             </div>

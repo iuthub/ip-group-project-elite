@@ -157,6 +157,5 @@ class FoodsController extends Controller {
         $food = Food::findOrFail($id);
         Storage::delete('public/food_images/' . $food->food_image);
         $food->delete();
-        return redirect('/admin/food/');
     }
 }
