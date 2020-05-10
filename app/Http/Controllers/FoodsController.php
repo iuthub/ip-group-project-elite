@@ -46,7 +46,7 @@ class FoodsController extends Controller {
         $this->validate($request, [
             'name' => 'required',
             'price' => 'required',
-            'food_image' => 'image|max:9999',
+            'food_image' => 'required|image|max:9999',
             'description' => 'required'
         ]);
 
